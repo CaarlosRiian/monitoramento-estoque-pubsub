@@ -9,7 +9,7 @@ def receber_mensagens(sock):
         try:
             mensagem = sock.recv(1024).decode()
             if mensagem:
-                print(f'\n[Servidor]: {mensagem}')
+                print(f'\n📦 {mensagem}')
             else:
                 break
         except:
@@ -25,7 +25,6 @@ def iniciar_cliente():
         print('[Erro] Não foi possível conectar ao servidor.')
         return
 
-    # Thread para escutar mensagens do servidor
     thread = threading.Thread(target=receber_mensagens, args=(cliente,))
     thread.daemon = True
     thread.start()
